@@ -28,52 +28,43 @@
 							<div></div>
 							<div></div>
 							<!-- Header -->
-                            <h1>Proposal</h1>
+                            <h1>Proposal  <a href="files/CS766_ProjectProposal.pdf"> (PDF) </a> </h1>
 							<section>
 							    <header class="major">
 							        <h2>Motivation</h2>
 							    </header>
 							    <div>
 							        <artical>
-							             With the increasing amount of multi-media content, there has been multiple research on synthesizing accurate, realistictalking face videos. This technique is broadly applicable to many scenarios- realistic dubbing in movie industry,conversational agents, virtual anchors, gaming, etc. Despite the recent advances and its wide applicability, synthesizinga clear, accurate and human-like performance is still a challenging task. We want to explore the state-of-the-arttechniques and its limitations. <br>
+							             With the increasing amount of multi-media content, there has been multiple research on synthesizing accurate, realistic talking face videos. This technique is broadly applicable to many scenarios such as realistic dubbing in the movie industry, conversational agents, virtual anchors, and gaming. There has become an increasingly large market for dubbing a foreign language onto videos; as the rate of video content creation increases, so does the need for accessibility for viewers across the globe. Providing a natural lip movement and facial expression generation improves the user's experience in these applications.
+										 Despite the recent advances and its wide applicability, synthesizing a clear, accurate and human-like performance is still a challenging task. We want to explore the state-of-the-art techniques and their limitations.  <br><br>
+
+										 	<p>
+										 	In this course project, we explore the problem of lip-syncing a talking face video to match the target speech segment to the lip and facial expression of the person in the video. The primary task is to achieve accurate audio-video synchronisation given a person's face and target audio clip. We can extend it to be speaker-independent model to produce lip-sync in the ''wild'', where videos feature faces that are dynamic and unconstrained. 
+										    </p>
 							        </artical>
 							    </div>
 
-							 <span>
-                                 <img src="css_js_files/proposal_origin.png" alt="" width="80%">
-                                <figcaption>Fig.1 Original Image.</figcaption>
-							 </span>
+							 
 							 
 
-							 <span><img src="css_js_files/proposal_scale.png" alt="" width="30%"></span>
+<!-- 							 <span><img src="css_js_files/proposal_scale.png" alt="" width="30%"></span>
 
 							 <span><img src="css_js_files/proposal_crop.png" alt="" width="30%"></span>
 
 							 <span><img src="css_js_files/proposal_sc.png" alt="" width="30%"></span>
-                             <figcaption>Fig.2. From left to right, Result of scaling, Cropping, Seam-carving</figcaption>
+                             <figcaption>Fig.2. From left to right, Result of scaling, Cropping, Seam-carving</figcaption> -->
 
 							</section>
 							
 							<section>
 							    <header class="major">
-							        <h2>Milestones</h2>
+							        <h2>State-of-the-art Model</h2>
 							    </header>
-							    <div>
-							         <h4>1 Implementing one dimension seam carving algorithm</h4>
-							         <p>By calculating the 8-connected path of pixels on the adjacent rows/columns, we pick
-							         the one with the lowest energy and thus has lowest impact on image to remove. 
-                                     </p>
-							        
-							        <h4>2 Implementing two dimensions seam carving algorithm &amp; content amplification</h4>
-							        <p>It is a 2D version of milestone 1, however, we need to take care of the order of selecting 
-							        rows and columns. Content amplification is considered as first give the image a larger scale, 
-							        then run seam carving algorithm on it</p>
-							        
-							       
-							        <h4>6 Webside and Demo</h4>
-							        <p>We should create an interactive online webpage for user to test and enjoy the resizing
-							        application</p>
-							    </div>
+							    <span>
+                                 <img src="files/a1_lip_GAN.png" alt="" width="100%">
+                                <figcaption>Fig.1 Lip-GAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
+                                </figcaption>
+							 	</span>
 							</section>
 							
 				            <section>
@@ -91,12 +82,12 @@
                                       <tbody>
                                         <tr>
                                           <th scope="row">Till Feb 24:</th>
-                                          <td>Come up with a project proposal document and create web pageDiscussion about possible techniques and directions to be explored.</td>
+                                          <td>Come up with a project proposal document and create web page. <br> Discussion about possible techniques and directions to be explored.</td>
                                         </tr>
                                         
                                         <tr>
                                           <th scope="row">Feb 25 - Mar 07</th>
-                                          <td>Set up the running environment for the state-of-the-art methods.Start implementing an existing approach as a baseline. </td>
+                                          <td>Set up the running environment for the state-of-the-art methods.<br> Start implementing an existing approach as a baseline. </td>
                                         </tr>
                                         
                                         <tr>
@@ -111,7 +102,7 @@
                                         
                                         <tr>
                                             <th scope="row">Mar 25 - Apr 11</th>
-                                            <td>Try experimenting with different loss formulations, multi-task framework.Explore alternate methods available in literature.</td>
+                                            <td>Try experimenting with different loss formulations, multi-task framework. <br> Explore alternate methods available in literature.</td>
                                         </tr>
                                         
                                         <tr>
@@ -131,6 +122,7 @@
 						</div>
 					</div>
 					
+
 					
 
 				<!-- Sidebar -->
