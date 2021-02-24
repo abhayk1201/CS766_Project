@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>CS766 Demo Website</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="css_js_files/main.css">
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+                            <h1>Proposal</h1>
+							<section>
+							    <header class="major">
+							        <h2>Motivation</h2>
+							    </header>
+							    <div>
+							        <artical>
+							             To address the issues
+ associated with the traditional image resizing methods, <a href="http://graphics.cs.cmu.edu/courses/15-463/2007_fall/hw/proj2/imret.pdf">Shai Avidan and Ariel Shamir</a>. we will build on and extend the 
+the Seam Carving method reported by Shaiu Avidan and Ariel
+                                        Shamir. <br>
+							        </artical>
+							    </div>
+							    
+							 <span>
+                                 <img src="css_js_files/proposal_origin.png" alt="" width="80%">
+                                <figcaption>Fig.1 Original Image.</figcaption>
+							 </span>
+							 
+
+							 <span><img src="css_js_files/proposal_scale.png" alt="" width="30%"></span>
+
+							 <span><img src="css_js_files/proposal_crop.png" alt="" width="30%"></span>
+
+							 <span><img src="css_js_files/proposal_sc.png" alt="" width="30%"></span>
+                             <figcaption>Fig.2. From left to right, Result of scaling, Cropping, Seam-carving</figcaption>
+
+							</section>
+							
+							<section>
+							    <header class="major">
+							        <h2>Milestones</h2>
+							    </header>
+							    <div>
+							         <h4>1 Implementing one dimension seam carving algorithm</h4>
+							         <p>By calculating the 8-connected path of pixels on the adjacent rows/columns, we pick
+							         the one with the lowest energy and thus has lowest impact on image to remove. 
+                                     </p>
+							        
+							        <h4>2 Implementing two dimensions seam carving algorithm &amp; content amplification</h4>
+							        <p>It is a 2D version of milestone 1, however, we need to take care of the order of selecting 
+							        rows and columns. Content amplification is considered as first give the image a larger scale, 
+							        then run seam carving algorithm on it</p>
+							        
+							        <h4>3 Enlarging </h4>
+							        <p>Enlarging is basically a reverse version of seam carving.</p>
+							        
+							        <h4>4 Object removal</h4>
+							        <p>With a GUI, the user is allowed to give priority to certain pixels in order to keep/remove 
+							        them while running with our resizing algorithm</p>
+							        
+							        <h4>5 Multi-Size</h4>
+							        <p>The user may not know the expect size of the image, it makes more sense if we can 
+							        storing an explicit representation of the time-evolution implicit process of seam removals and 
+							        insertions, using DP algorithm.</p>
+							        
+							        <h4>6 Webside and Demo</h4>
+							        <p>We should create an interactive online webpage for user to test and enjoy the resizing
+							        application</p>
+							    </div>
+							</section>
+							
+				            <section>
+							    <header class="major">
+							        <h2>Time Table</h2>
+							    </header>
+							    <div>
+							        <table class="table table-striped">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" style="width: 20%">Time</th>
+                                          <th scope="col">Work</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row">Before Feb.14</th>
+                                          <td>Project Proposal. Discuss about steps and timeline for the project, and applications we want to implement. Create web page</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <th scope="row">Feb.15 - Mar.01</th>
+                                          <td>Write code to compute the 
+edge-based measure for an input image. Implement the dynamic programming
+ code to find the optimal seam to remove along one direction. Compare 
+different energy functions for content aware resizing. </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <th scope="row">Mar.02 - Apr.02</th>
+                                          <td>Complete two dimension 
+seam carving. Use it to reduce the width of an image and compare it with
+ other algorithms like Crop, Column, Pixel and Optimal carving. Complete
+ the image enlarging and content amplification application. Write 
+Mid-term report. </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th scope="row">Apr.03 - Apr.15</th>
+                                            <td> Implement seam carving in the object removal applications. </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th scope="row">Apr.16 - Apr.23</th>
+                                            <td>Implement seam carving 
+for multi-size images, which allows the user to retarget an image 
+indifferent size. Will work on videos if there is still time.</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th scope="row">Apr. 24 - May 07.</th>
+                                            <td>Complete project webpage.</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+							    </div>
+							</section>
+							
+
+						</div>
+					</div>
+					
+					
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner" style="">
+
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Proposal</a></li>
+										<li><a href="midterm.html">Mid-Term Report</a></li>
+										<li><a href="final.html">Final Report</a></li>
+<!--										<li><a href="elements.html">Elements</a></li>-->
+									</ul>
+								</nav>
+
+
+							<!-- Section -->
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">© Abhay Kumar, Maryam Vazirabd, Elizabeth Murphy&nbsp; Design: <a href="https://html5up.net/">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					<a href="#sidebar" class="toggle">Toggle</a></div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="css_js_files/jquery.js"></script>
+			<script src="css_js_files/skel.js"></script>
+			<script src="css_js_files/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="css_js_files/main.js"></script>
+
+	
+</body></html>
