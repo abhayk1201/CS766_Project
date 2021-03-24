@@ -58,14 +58,25 @@
 							
 							<section>
 							    <header class="major">
-							        <h2>State-of-the-art Model</h2>
+							        <h2>State-of-the-art Model Implementation </h2>
 							    </header>
 							    <span>
                                  <img src="files/mt_0_lip_GAN.png" alt="" width="100%">
                                 <figcaption>Fig.1 Lip-GAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
                                 </figcaption>
 							 	</span>
-							 	<br><br>
+							 	<br>
+							 	
+							</section>
+							
+
+							<section>
+							    <header class="major">
+							        <h2>Problems Faced & Possible directions </h2>
+							    </header>
+							    
+							    <h3>Limitations due to spurious lip region detection: </h3>
+							    We have noticed that lip-sync generation has spuriousmovements on non-lip region, like lower chin or side chin as shown in 3. We have observed this when the facedetection fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation.We need to observe few more such cases to generalize the limitation and come up with a possible modification.  <br><br>
 							 	<span>
                                  <video width="460" height="315" controls>
 								  <source src="files/biden2_out.mp4" type="video/mp4">
@@ -82,6 +93,29 @@
 							 	
 							 	</span>
 							 	 <figcaption>Fig.2 From left to right: (a) Lip-GAN generates reasonably accurate lip sync </a> (b) Lip-GAN generates spurious lip sync on non-lip region  </a>
+                                </figcaption>
+							</section>
+
+
+							<section>
+							    <h3>Teeth Region Deformation</h3>
+							    We observed that the LipGAN model generates image frames which smoothedout teeth and lip region. Lower teeth is merged with upper lip and smoothed out. <br><br>
+							 	<span>
+                                 <video width="460" height="315" controls>
+								  <source src="files/AK_Nayak.mp4" type="video/mp4">
+								</video> 
+							 	</span>
+							 	<!-- <br><br>
+							 	<h3> Lip-GAN Paper Video Demo
+							 	</h3> -->
+							 	<span>
+
+							 	<video width="460" height="320" controls>
+								  <source src="files/ak_side.mp4" type="video/mp4">
+								</video> 
+							 	
+							 	</span>
+							 	 <figcaption>Fig.3 From left to right: (a) Lip-GAN generates reasonably accurate lip sync </a> (b) Lip-GAN generates frames with merged (smoothed) teeth and upper lip region </a>
                                 </figcaption>
 							</section>
 							
