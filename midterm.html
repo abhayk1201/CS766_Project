@@ -6,7 +6,7 @@
 -->
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>CS766 Project (Lip-GAN)</title>
+		<title>CS766 Project (LipGAN)</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -35,10 +35,10 @@
 							    </header>
 							    <div>
 							        <artical>
-							             We explore the problem of lip-syncing a talking face video to match the target speech segment to the lip and facialexpression of the person in the video.  The primary task is to achieve accurate audio-video 
-							             synchronization given aperson’s face and target audio clip, where videos feature faces are dynamic and unconstrained. <br><br>
-							             This technique is broadly applicable to many scenarios such as realistic dubbing in the movie industry, conversationalagents, virtual anchors, and gaming. Providing a natural lip movement and facial expression generation improves theuser’s experience in these applications. <br><br> 
-							             Despite the recent advances and its wide applicability, synthesizing a clear, accurate, and human-like performanceis still a challenging task.  We are exploring the limitations of the state-of-the-art techniques and propose possiblesolutions.<br><br>
+							             We explore the problem of lip-syncing a talking face video to match the target speech segment to the lip and facial expression of the person in the video.  The primary task is to achieve accurate audio-video 
+							             synchronization given a person’s face and target audio clip, where videos feature faces are dynamic and unconstrained. <br><br>
+							             This technique is broadly applicable to many scenarios such as realistic dubbing in the movie industry, conversational agents, virtual anchors, and gaming. Providing a natural lip movement and facial expression generation improves the user’s experience in these applications. <br><br> 
+							             Despite the recent advances and its wide applicability, synthesizing a clear, accurate, and human-like performanceis still a challenging task.  We are exploring the limitations of the state-of-the-art techniques and propose possible solutions.<br><br>
 
 										 	
 							        </artical>
@@ -62,7 +62,7 @@
 							    </header>
 							    <span>
                                  <img src="files/mt_0_lip_GAN.png" alt="" width="100%">
-                                <figcaption>Fig.1 Lip-GAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
+                                <figcaption>Fig.1 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
                                 </figcaption>
 							 	</span>
 							 	<br>
@@ -76,14 +76,14 @@
 							    </header>
 							    
 							    <h3>Limitations due to spurious lip region detection: </h3>
-							    We have noticed that lip-sync generation has spuriousmovements on non-lip region, like lower chin or side chin as shown in 3. We have observed this when the facedetection fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation.We need to observe few more such cases to generalize the limitation and come up with a possible modification.  <br><br>
+							    We have noticed that lip-sync generation has spuriousmovements on non-lip region, like lower chin or side chin as shown below (right video). We have observed this when the face detection fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation. We need to observe few more such cases to generalize the limitation and come up with a possible modification.  <br><br>
 							 	<span>
                                  <video width="460" height="315" controls>
 								  <source src="files/biden2_out.mp4" type="video/mp4">
 								</video> 
 							 	</span>
 							 	<!-- <br><br>
-							 	<h3> Lip-GAN Paper Video Demo
+							 	<h3> LipGAN Paper Video Demo
 							 	</h3> -->
 							 	<span>
 
@@ -92,21 +92,21 @@
 								</video> 
 							 	
 							 	</span>
-							 	 <figcaption>Fig.2 From left to right: (a) Lip-GAN generates reasonably accurate lip sync </a> (b) Lip-GAN generates spurious lip sync on non-lip region  </a>
+							 	 <figcaption>Fig.2 From left to right: (a) LipGAN generates reasonably accurate lip sync </a> (b) LipGAN generates spurious lip sync on non-lip region  </a>
                                 </figcaption>
 							</section>
 
 
 							<section>
 							    <h3>Teeth Region Deformation</h3>
-							    We observed that the LipGAN model generates image frames which smoothedout teeth and lip region. Lower teeth is merged with upper lip and smoothed out. <br><br>
+							    We observed that the LipGAN model generates image frames which smoothed out teeth and lip region. Lower teeth is merged with upper lip and smoothed out. <br><br>
 							 	<span>
                                  <video width="460" height="315" controls>
 								  <source src="files/AK_Nayak.mp4" type="video/mp4">
 								</video> 
 							 	</span>
 							 	<!-- <br><br>
-							 	<h3> Lip-GAN Paper Video Demo
+							 	<h3> LipGAN Paper Video Demo
 							 	</h3> -->
 							 	<span>
 
@@ -115,8 +115,18 @@
 								</video> 
 							 	
 							 	</span>
-							 	 <figcaption>Fig.3 From left to right: (a) Lip-GAN generates reasonably accurate lip sync </a> (b) Lip-GAN generates frames with merged (smoothed) teeth and upper lip region </a>
+							 	 <figcaption>Fig.3 From left to right: (a) LipGAN generates reasonably accurate lip sync </a> (b) LipGAN generates frames with merged (smoothed) teeth and upper lip region </a>
                                 </figcaption>
+							</section>
+
+
+							<section>
+							    <h3>Ongoing Progress</h3>
+							    We are trying to modify the face reconstruction loss module. Currently, the face reconstruction loss is calculated for the whole image to ensure correct pose generation, background around the face, and preservation of the identity.  The lip region contributes to less than 4% of the total reconstruction loss. However, we need to emphasize the reconstruction loss in lip region. We are planning to explore different techniques, like weighted reconstruction loss, or having a separate discriminator (as in a multi-task setting) to focus on the lip-sync only. We can jointly train the GAN framework with two discriminator networks (one for visual quality, and one for lip sync). Therefore, we will manually evaluate and judge the lip-synchronization based on performance metrics discussed in previous works. <br><br>
+                            	
+                            	<h3>Optional Goal</h3>
+							    If time and computational power permit, we can experiment with different model architectures for each of the blocks shown in the LipGAN architecture. For example, we can use state-of-the-art model architectures to extract richer and complex audio and face embedding. <br><br>
+                            
 							</section>
 							
 				           
@@ -134,7 +144,7 @@
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h2>CS766 Project (Lip-GAN)</h2>
+										<h2>CS766 Project (LipGAN)</h2>
 									</header>
 									<ul>
 										<li><a href="index.html">Proposal</a></li>
