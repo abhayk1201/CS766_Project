@@ -28,19 +28,21 @@
 							<div></div>
 							<div></div>
 							<!-- Header -->
-                            <h1>Proposal  <a href="files/CS766_ProjectProposal.pdf"> (PDF) </a> </h1>
+                            <h1>Final Report   <a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pptx"> (presentation slides) </a>
+                            <a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pdf"> (PDF) </a>
+                             </h1>
 							<section>
 							    <header class="major">
-							        <h2>Motivation</h2>
+							        <h2>Introduction</h2>
 							    </header>
 							    <div>
 							        <artical>
-							             With the increasing amount of multi-media content, there has been multiple research on synthesizing accurate, realistic talking face videos. This technique is broadly applicable to many scenarios such as realistic dubbing in the movie industry, conversational agents, virtual anchors, and gaming. There has become an increasingly large market for dubbing a foreign language onto videos; as the rate of video content creation increases, so does the need for accessibility for viewers across the globe. Providing a natural lip movement and facial expression generation improves the user's experience in these applications.
-										 Despite the recent advances and its wide applicability, synthesizing a clear, accurate and human-like performance is still a challenging task. We want to explore the state-of-the-art techniques and their limitations.  <br><br>
+							             We explore the problem of lip-syncing a talking face video to match the target speech segment to the lip and facial expression of the person in the video.  The primary task is to achieve accurate audio-video 
+							             synchronization given a person’s face and target audio clip, where videos feature faces are dynamic and unconstrained. <br><br>
+							             This technique is broadly applicable to many scenarios such as realistic dubbing in the movie industry, conversational agents, virtual anchors, and gaming. Providing a natural lip movement and facial expression generation improves the user’s experience in these applications. <br><br> 
+							             Despite the recent advances and its wide applicability, synthesizing a clear, accurate, and human-like performanceis still a challenging task.  We are exploring the limitations of the state-of-the-art techniques and propose possible solutions.<br><br>
 
-										 	<p>
-										 	In this course project, we explore the problem of lip-syncing a talking face video to match the target speech segment to the lip and facial expression of the person in the video. The primary task is to achieve accurate audio-video synchronisation given a person's face and target audio clip. We can extend it to be speaker-independent model to produce lip-sync in the ''wild'', where videos feature faces that are dynamic and unconstrained. 
-										    </p>
+										 	
 							        </artical>
 							    </div>
 
@@ -58,79 +60,135 @@
 							
 							<section>
 							    <header class="major">
-							        <h2>State-of-the-art Model</h2>
+							        <h2>State-of-the-art Model Implementation </h2>
 							    </header>
 							    <span>
-                                 <img src="files/a1_lip_GAN.png" alt="" width="100%">
+                                 <img src="files/mt_0_lip_GAN.png" alt="" width="100%">
                                 <figcaption>Fig.1 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
                                 </figcaption>
 							 	</span>
-							 	<br><br>
+							 	<br>
+							 	
+							</section>
+							
+
+							<section>
+							    <header class="major">
+							        <h2>Problems Faced & Possible directions </h2>
+							    </header>
+							    
+							    <h3>Limitations due to spurious lip region detection: </h3>
+							    We have noticed that lip-sync generation has spuriousmovements on non-lip region, like lower chin or side chin as shown below (right video). We have observed this when the face detection fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation. We need to observe few more such cases to generalize the limitation and come up with a possible modification.  <br><br>
 							 	<span>
-                                 <img src="files/a1_lip_gan_output.gif" alt="" width="48%" class="center">
+                                 <video width="460" height="315" controls>
+								  <source src="files/biden2_out.mp4" type="video/mp4">
+								</video> 
 							 	</span>
 							 	<!-- <br><br>
 							 	<h3> LipGAN Paper Video Demo
 							 	</h3> -->
 							 	<span>
-							 	 <iframe width="460" height="315" src="https://www.youtube.com/embed/aHG6Oei8jF0" title="LipGAN Paper Video Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-							 	 </iframe>
+
+							 	<video width="460" height="320" controls>
+								  <source src="files/biden_out.mp4" type="video/mp4">
+								</video> 
+							 	
 							 	</span>
-							 	 <figcaption>Fig.2 From left to right: (a)<a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> LipGAN output gif. </a> (b) <a href="https://www.youtube.com/embed/aHG6Oei8jF0"> LipGAN Paper Video Demo </a>
+							 	 <figcaption>Fig.2 From left to right: (a) LipGAN generates reasonably accurate lip sync </a> (b) LipGAN generates spurious lip sync on non-lip region  </a>
                                 </figcaption>
 							</section>
-							
-				            <section>
-							    <header class="major">
-							        <h2>Time Table</h2>
-							    </header>
-							    <div>
-							        <table class="table table-striped">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col" style="width: 20%">Time</th>
-                                          <th scope="col">Work</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <th scope="row">Till Feb 24:</th>
-                                          <td>Come up with a project proposal document and create web page. <br> Discussion about possible techniques and directions to be explored.</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                          <th scope="row">Feb 25 - Mar 07</th>
-                                          <td>Set up the running environment for the state-of-the-art methods.<br> Start implementing an existing approach as a baseline. </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                          <th scope="row">Mar 08 - Mar 20</th>
-                                          <td>Have one working implementation of an existing approach (LipGAN).</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th scope="row">Mar 21 - Mar 24</th>
-                                            <td> Write Mid-term report. </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th scope="row">Mar 25 - Apr 11</th>
-                                            <td>Try experimenting with different loss formulations, multi-task framework. <br> Explore alternate methods available in literature.</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th scope="row">Apr 12 - Apr 23 </th>
-                                            <td>Summarize result and ablation studies. Complete all experiments.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Apr 25 - May 5 </th>
-                                            <td>Complete course project web page.</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-							    </div>
+
+
+							<section>
+							    <h3>Teeth Region Deformation</h3>
+							    We observed that the LipGAN model generates image frames which smoothed out teeth and lip region. Lower teeth is merged with upper lip and smoothed out. <br><br>
+							 	<span>
+                                 <video width="460" height="315" controls>
+								  <source src="files/AK_Nayak.mp4" type="video/mp4">
+								</video> 
+							 	</span>
+							 	<!-- <br><br>
+							 	<h3> LipGAN Paper Video Demo
+							 	</h3> -->
+							 	<span>
+
+							 	<video width="460" height="320" controls>
+								  <source src="files/ak_side.mp4" type="video/mp4">
+								</video> 
+							 	
+							 	</span>
+							 	 <figcaption>Fig.3 From left to right: (a) LipGAN generates reasonably accurate lip sync </a> (b) LipGAN generates frames with merged (smoothed) teeth and upper lip region </a>
+                                </figcaption>
+							</section>
+
+
+							<section>
+							    <h3>Ongoing Progress</h3>
+							    We are trying to modify the face reconstruction loss module. Currently, the face reconstruction loss is calculated for the whole image to ensure correct pose generation, background around the face, and preservation of the identity.  The lip region contributes to less than 4% of the total reconstruction loss. However, we need to emphasize the reconstruction loss in lip region. We are planning to explore different techniques, like weighted reconstruction loss, or having a separate discriminator (as in a multi-task setting) to focus on the lip-sync only. We can jointly train the GAN framework with two discriminator networks (one for visual quality, and one for lip sync). Additionally, We will manually evaluate and judge the lip-synchronization based on performance metrics discussed in previous works. <br><br>
+                            	
+                            	<h3>Optional Goal</h3>
+							    If time and computational power permit, we can experiment with different model architectures for each of the blocks shown in the LipGAN architecture. For example, we can use state-of-the-art model architectures to extract richer and complex audio and face embedding. <br><br>
+ 
+
 							</section>
 							
+
+							<section>
+							    <header class="major">
+							        <h2> Project Presentation Video </h2>
+							    </header>							    	
+							 	<span>
+                                 <video width="900" height="600" controls>
+								  <source src="files/presentation.mp4" type="video/mp4">
+								</video> 
+							 	</span>							 	
+							</section>
+							
+
+							<section>
+							    <header class="major">
+							        <h2> Some additional Result samples </h2>
+							    </header>
+							    							   
+							 	<span>
+                                 <video width="460" height="400" controls>
+								  <source src="files/abhay1.mp4" type="video/mp4">
+								</video> 
+							 	</span>
+
+							 	<span>
+							 	<video width="460" height="320" controls>
+								  <source src="files/trump_srk.mp4" type="video/mp4">
+								</video> 
+							 	
+							 	</span>
+							</section>
+				           
+
+							<section>
+							    <header class="major">
+							        <h2> REFERENCES </h2>
+							    </header>
+							    							   
+							 	<ul style="list-style-type:none;">
+								  <li>[1] Prajwal KR, Rudrabha Mukhopadhyay, Jerin Philip, Abhishek Jha, Vinay Namboodiri, and CV Jawahar. Towards automatic face-to-face translation. In Proceedings of the 27th ACM International Conference on Multimedia, pages 1428–1436, 2019</li>
+								  <li>[2] Triantafyllos Afouras, Joon Son Chung, Andrew Senior, Oriol Vinyals, and Andrew Zisserman. Deep audio-visualspeech recognition. IEEE transactions on pattern analysis and machine intelligence, 2018.</li>
+								  <li>[3] Lele Chen, Zhiheng Li, Ross K Maddox, Zhiyao Duan, and Chenliang Xu. Lip movements generation at a glance. In Proceedings of the European Conference on Computer Vision (ECCV), pages 520–535, 2018.</li>
+								  <li>[4] Joon Son Chung and Andrew Zisserman.  Out of time: automated lip sync in the wild.  In Asian conference oncomputer vision, pages 251–263. Springer, 2016.</li>
+								  <li>[5] Lip  reading  sentences  in  the  wild  agreement  (lrs2)  document.https://www.bbc.co.uk/rd/projects/lip-reading-datasets.</li>
+								  <li>[6] The oxford-bbc lip reading sentences 2 (lrs2) dataset.https://www.robots.ox.ac.uk/~vgg/data/lip_reading/lrs2.html.</li>
+								  <li>[7]  Google colaboratory.https://colab.research.google.com/.</li>
+								  <li>[8] https://github.com/Rudrabha/LipGAN/tree/fully_pythonic </li>
+								  <li>[9] Prajwal, K.R., Mukhopadhyay, R., Namboodiri, V.P. and Jawahar, C.V., 2020, October. A lip sync expert is all you need for speech to lip generation in the wild. In Proceedings of the 28th ACM International Conference on Multimedia (pp. 484-492).</li>
+								  <li>[10] Masood, Momina, Marriam Nawaz, Khalid Mahmood Malik, Ali Javed, and Aun Irtaza. "Deepfakes Generation and Detection: State-of-the-art, open challenges, countermeasures, and way forward." arXiv preprint arXiv:2103.00484 (2021).</li>
+								  <li>[11] Prajwal, K.R., Mukhopadhyay, R., Namboodiri, V.P. and Jawahar, C.V., 2020. Learning individual speaking styles for accurate lip to speech synthesis. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 13796-13805).</li>
+								  <li>[12] Chung, J.S., Jamaludin, A. and Zisserman, A., 2017. You said that?. arXiv preprint arXiv:1705.02966. </li>
+
+								</ul>  
+							</section>
+
+
+
 
 						</div>
 					</div>
@@ -149,9 +207,9 @@
 										<h2>CS766 Project (LipGAN)</h2>
 									</header>
 									<ul>
-										<li><a href="index.html"><b>Proposal</b></a></li>
+										<li><a href="proposal.html">Proposal</a></li>
 										<li><a href="midterm.html">Mid-Term Report</a></li>
-										<li><a href="final.html">Final Report</a></li>
+										<li><a href="index.html"><b>Final Report</b></a></li>
 <!--										<li><a href="elements.html">Elements</a></li>-->
 									</ul>
 								</nav>
