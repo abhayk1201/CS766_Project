@@ -61,11 +61,11 @@
 								
 								<h3> Lip Sync Generation </h3> 
 								Lip Sync Generation is the process of creating a lip-sync talking face video using an audio segment. <br><br> 
-								<h4> ObamaNet </h4> 
+								<h4> ObamaNet [13] </h4> 
 								<artical>
 									ObamaNet takes in text as an input and creates the corresponding speech and a synchronized lip-sync video. This model relies on fully trainable neural models. It uses a a text-to-speech network, a time-delayed long short-term memory (LSTM) recurrent neural network to generate keypoints of the  mouth that are synced to the audio, and a network used to generate video frames that are conditioned on the mouth keypoints. Since this network is only trained on one speaker it can not be used for new speakers or voices. <br> <br>
 								</artical>
-								<h4> Text-based Editing of Talking-head Video </h4> 
+								<h4> Text-based Editing of Talking-Head Video [14] </h4> 
 								<artical>
 									
 									This network takes in both a video recording of a talking head as well as a transcript of the speech with edit operations specified. The inputs are processed in five stages:
@@ -77,7 +77,7 @@
 									<li> Render the resulting video
 									</ol>
 								</artical>
-								<h4> Neural Voice Puppetry </h4> 
+								<h4> Neural Voice Puppetry [15] </h4> 
 								<artical>
 									This network takes in an audio sequence and generates an output video of a person that is in sync with the audio. This method first learns speaker-independent features and then learns a rendoring map. This method can be generalized across different speakers and can use voices of unknown sources as well as synthetic voices. 
 								</artical>
