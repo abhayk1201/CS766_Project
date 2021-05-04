@@ -39,7 +39,7 @@
 							    </header>
 							    <div>
 									<artical>
-										While the manipulation of media is not a new phenomenon, highly realistic forms of synthetic media, i.e. realistic photo, audio, and video, are hitting the mainstream. A growing number of research has been conducted on this topic, including the synthesization of life-like talking face videos, also known as Audio Deepfakes. Prajwal et al. [1] proposed a new approach in digital communication that was coined "Face-to-Face Translation”; by feeding in a static image or video of a person and a target audio file, one can produce talking face videos with natural lip and face synchronization. The idea behind this approach is to utilize a generative adversarial network (GAN) to generate face images conditioned on the audio input while also checking whether the generated frame and audio are synchronized. <br><br>
+										While the manipulation of media is not a new phenomenon, highly realistic forms of synthetic media, i.e. realistic photo, audio, and video, are hitting the mainstream. A growing number of research has been conducted on this topic, including the synthesization of life-like talking face videos, also known as Audio Deepfakes. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Prajwal et al. </a> proposed a new approach in digital communication that was coined "Face-to-Face Translation”; by feeding in a static image or video of a person and a target audio file, one can produce talking face videos with natural lip and face synchronization. The idea behind this approach is to utilize a generative adversarial network (GAN) to generate face images conditioned on the audio input while also checking whether the generated frame and audio are synchronized. <br><br>
 										Broad applications of this task include realistic foreign language dubbing in movies, CGI animation, conversational agents in telecommuting or distance education, and gaming. In this work, we explore this audio deepfake model, LipGAN, and attempt to improve upon its limitations.<br><br>
 									</artical>
 							    </div>							 					
@@ -59,16 +59,25 @@
 									<h2>Dataset and Preprocessing</h2>
 								</header>
 								<h3> Dataset Description </h3>
-								The Lip Reading Senetences 2 (LRS2) dataset [2] is an audio-visual speech recognition dataset collected from in the wild videos. It consists of thousands of spoken sentences from BBC television.  Each sentences is up to 100 characters in length. The training, validation, and test sets are divided according to broadcast date. The train set contains 45,839 utterances with 329,180 words instances and 17,660 vocab size.
+								We trained the model using the Lip Reading Senetences 2 (LRS2) [2], an audio-visual speech recognition dataset collected from in-the-wild videos. It consists of thousands of spoken sentences from BBC television. Each sentences is up to 100 characters in length. The training, validation, and test sets are divided according to broadcast date. The train set contains 45,839 utterances with 329,180 words instances and 17,660 vocab size.
 
 								<br><br>
 								<h3> Preprocessing </h3>
-								We extracted the frames at 25fps usingopencvand trimmed the face coordinates of the speaker.  We used dlibget_frontal_face_detector to detect the speaker face from the video frames. Each detected face is resized to 96×96. The LipGan requires that audio files are in the form of a Mel-frquency cepstrum features (MFCCs) so we converted the audio files using the python audio library to match this format.  Pre-processed outputs for a video is shown in below figure.
+								In order to prepare the dataset, we extracted the frames at 25fps using opencv and trimmed the face coordinates of the speaker.  We used dlibget_frontal_face_detector to detect the speaker face from the video frames. Each detected face is resized to 96×96. LipGan requires that audio files are in the form of a Mel-frquency cepstrum features (MFCCs) so we converted the audio files to match this format. An example of preprocessed outputs for a video is shown in the figure below.
 								<span>
-									<img src="files/preprocessing.png" alt="" width="100%">
+									<img src="files/wecandobetter_preprocessing.png" alt="" width="100%">
 									<figcaption>
-										Fig.1: Pre-processeding output for the utterance-"I Liked the radio podcast"
+										Fig.1: Pre-processeding output for the phrase "We can do better"
 									</figcaption>
+
+									<figcaption>Corresponding audio for the phrase:</figcaption>
+									<br><br>
+									<audio controls
+										   src="files/audio.wav">
+										Your browser does not support the
+										<code>audio</code> element.
+									</audio>
+
 								</span>
 							</section>
 							
