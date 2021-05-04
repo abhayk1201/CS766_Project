@@ -164,13 +164,13 @@
 								At each training batch to the discriminator network, synthesized samples from the generator network, original frames with their target audio segments, and original frames that are out of synch with the target audio segments. The discriminator calculates the following contrastive loss for each set of training samples in <i>y</i>:
 								<br>
 								<span>
-									<img src="files/contrastive_loss.png" style="width: 50%; height: 50%">
+									<img src="files/contrastive_loss.PNG" style="width: 50%; height: 50%">
 									<figcaption>
 									</figcaption>
 								</span>
 								<i>m</i> is the margin (set to 2). The generator is trained to minimize L1 reconstruction loss between the generated frames and ground truth frames:
 								<span>
-									<img src="files/reconstruction_loss.png" style="width: 30%; height: 30%">
+									<img src="files/reconstruction_loss.PNG" style="width: 30%; height: 30%">
 									<figcaption>
 									</figcaption>
 								</span>
