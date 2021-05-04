@@ -122,38 +122,39 @@
 
 
 							<section>
-							    <header class="major">
-							        <h2>State-of-the-art Model Implementation </h2>
-							    </header>
-							    
-							    <span>
-                                 	<img src="files/mt_0_lip_GAN.png" alt="" width="100%">
-                                	<figcaption>Fig.2 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
-                                	</figcaption>
-							 	</span>						 	
-							 	<br><br><br>
+								<header class="major">
+									<h2>State-of-the-art Model Implementation </h2>
+								</header>
 
-							 	<header class="major">
-							 		<h2> Model architecture overview</h2>
-							 	</header>
+								<span>
+									<img src="files/mt_0_lip_GAN.png" alt="" width="100%">
+									<figcaption>
+										Fig.2 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
+									</figcaption>
+								</span>
+								<br><br><br>
 
-							 	<h2> Generator network </h2>
+								<header class="major">
+									<h2> Model architecture overview</h2>
+								</header>
 
-							 		<h3> Face Encoder </h3>
-							 		This CNN module encodes the face features, including identity and pose.
-							 		<br><br><br>
+								<h2> Generator network </h2>
 
-							 		<h3> Audio Encoder: </h3>
-							 		The audio encoder is a standard CNN model that takes a Mel-frequency cepstral coefficient(MFCC) heatmap and creates an audio embedding
-							 		<br><br><br>
+								<h3> Face Encoder </h3>
+								CURRENTLY EDITING This CNN module encodes the face features, including identity and pose.
+								<br><br><br>
 
-							 		<h3> Face Decoder </h3>
-							 		This module synthesizes a lip-synchronized face from the joint audio-visual embedding byinpainting the masked region of the input image with an appropriate mouth shape.
-							 		<br><br><br>
+								<h3> Audio Encoder: </h3>
+								CURRENTLY EDITING The audio encoder is a standard CNN model that takes a Mel-frequency cepstral coefficient(MFCC) heatmap and creates an audio embedding
+								<br><br><br>
 
-							 	<h2> Discriminator network </h2>
-							 	Contrastive loss between the encoded audio and encoded face is used to supervise the generator module to learn robust, accurate phoneme-viseme mappings to produce satisfactory talking faces with more natural facial movements.
-							 	<br><br>
+								<h3> Face Decoder </h3>
+								CURRENTLY EDITING This module synthesizes a lip-synchronized face from the joint audio-visual embedding byinpainting the masked region of the input image with an appropriate mouth shape.
+								<br><br><br>
+
+								<h2> Discriminator network </h2>
+								CURRENTLY EDITING Contrastive loss between the encoded audio and encoded face is used to supervise the generator module to learn robust, accurate phoneme-viseme mappings to produce satisfactory talking faces with more natural facial movements.
+								<br><br>
 
 							</section>
 
