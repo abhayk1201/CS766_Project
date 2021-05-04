@@ -104,7 +104,7 @@
 								<span>
 									<img src="files/wecandobetter_preprocessing.png" alt="" width="100%">
 									<figcaption>
-										Fig.2: Pre-processeding output for the phrase "We can do better"
+										Fig.2: Pre-processed output for the phrase "We can do better"
 									</figcaption>
 
 									<figcaption>Corresponding audio for the phrase:</figcaption>
@@ -138,21 +138,21 @@
 								</header>
 
 								<h2> Generator network </h2>
-
+								In our work, we reimplented the LipGAN model. Its architecture, shown in the diagram above, is comprised of two networks: a generator, composed of a face encoder, audio encoder, and face decoder, and a discriminator, composed of another face encoder and audio encoder. Training these networks together in an adversarial model achieves higher accuracy as the generator learns to create a more natural lip synchronization.
 								<h3> Face Encoder </h3>
-								CURRENTLY EDITING This CNN module encodes the face features, including identity and pose.
+								By inputting the identity face image and the ground truth of the face pose, the face encoder encodes a sequence of images of a talking face. The target face pose is constructed by masking the lower half of the face such that the ground truth lip shape remains hidden from the encoder. This module is a CNN with a series of residual blocks with intermediate down-sampling layers.
 								<br><br><br>
 
 								<h3> Audio Encoder: </h3>
-								CURRENTLY EDITING The audio encoder is a standard CNN model that takes a Mel-frequency cepstral coefficient(MFCC) heatmap and creates an audio embedding
+								The audio encoder encodes a segment of audio by transforming a MFCC heatmap into an audio embedding. This module is a standard CNN and, together with the face encoder, produce a joint audio-visual embedding. This assembled output of the audio and face encoder is used as input for the face decoder.
 								<br><br><br>
 
 								<h3> Face Decoder </h3>
-								CURRENTLY EDITING This module synthesizes a lip-synchronized face from the joint audio-visual embedding byinpainting the masked region of the input image with an appropriate mouth shape.
+								Inputting the concatenated outputs of the face and audio encoders, the face decoder attempts to generate an image of a person’s face that matches the lip shape corresponding to the audio segment at a given time interval. This CNN consists of a series of residual blocks with intermediate deconvolutional layers which upsample the feature maps. Six skip connections are used after each upsampling operation to help feed enough information about the facial features. This assists in preserving the quality of the facial features while generating the image of the face.
 								<br><br><br>
 
 								<h2> Discriminator network </h2>
-								CURRENTLY EDITING Contrastive loss between the encoded audio and encoded face is used to supervise the generator module to learn robust, accurate phoneme-viseme mappings to produce satisfactory talking faces with more natural facial movements.
+								Within the discriminator network, the output from the generator network is fed into a new face encoder. The discriminator calculates a contrastive loss from the output of both the face encoder and audio encoder. The value of this loss determines if the generated face is synchronized with the audio input or if it is not in sync.
 								<br><br>
 
 							</section>
