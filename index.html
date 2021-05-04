@@ -139,6 +139,7 @@
 
 								<h2> Generator network </h2>
 								In our work, we reimplented the LipGAN model. Its architecture, shown in the diagram above, is comprised of two networks: a generator, composed of a face encoder, audio encoder, and face decoder, and a discriminator, composed of another face encoder and audio encoder. Training these networks together in an adversarial model achieves higher accuracy as the generator learns to create a more natural lip synchronization.
+								<br><br>
 								<h3> Face Encoder </h3>
 								By inputting the identity face image and the ground truth of the face pose, the face encoder encodes a sequence of images of a talking face. The target face pose is constructed by masking the lower half of the face such that the ground truth lip shape remains hidden from the encoder. This module is a CNN with a series of residual blocks with intermediate down-sampling layers.
 								<br><br>
