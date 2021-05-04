@@ -37,13 +37,8 @@
 							    </header>
 							    <div>
 									<artical>
-										While the manipulation of media is not a new phenomenon, highly realistic forms of synthetic media, i.e. realistic photo, audio, and video, are hitting the mainstream.
-										A growing number of research has been conducted on this topic, including the synthesization of life-like talking face videos, also known as Audio Deepfakes.
-										Prajawal et al. proposed a new approach in digital communication that was coined "Face-to-Face Translation”; by feeding in a static image or video of a person and a target audio file,
-										one can produce talking face videos with natural lip and face synchronization. The idea behind this approach is to utilize a generative adversarial network (GAN) to generate face images
-										conditioned on the audio input while also checking whether the generated frame and audio are synchronized. <br><br>
-										Broad applications of this task include realistic foreign language dubbing in movies, CGI animation, conversational agents in telecommuting or distance education, and gaming. 
-										In this work, we explore this audio deepfake model, LipGAN, and attempt to improve upon its limitations.<br><br>
+										While the manipulation of media is not a new phenomenon, highly realistic forms of synthetic media, i.e. realistic photo, audio, and video, are hitting the mainstream. A growing number of research has been conducted on this topic, including the synthesization of life-like talking face videos, also known as Audio Deepfakes. Prajwal et al. [1] proposed a new approach in digital communication that was coined "Face-to-Face Translation”; by feeding in a static image or video of a person and a target audio file, one can produce talking face videos with natural lip and face synchronization. The idea behind this approach is to utilize a generative adversarial network (GAN) to generate face images conditioned on the audio input while also checking whether the generated frame and audio are synchronized. <br><br>
+										Broad applications of this task include realistic foreign language dubbing in movies, CGI animation, conversational agents in telecommuting or distance education, and gaming. In this work, we explore this audio deepfake model, LipGAN, and attempt to improve upon its limitations.<br><br>
 									</artical>
 							    </div>							 					
                              <h3>Previous work </h3>
@@ -52,20 +47,21 @@
 
 
 							<section>
-							    <header class="major">
-							        <h2>Dataset and Preprocessing</h2>
-							    </header>
-							    <h3> Dataset Description </h3>
-							    The LRS2 dataset [2] consists of thousands of spoken sentences from BBC television.  Each sentences is up to 100characters in length. The training, validation, and test sets are divided according to broadcast date. The train set contains45,839 utterances with 329,180 words instances and 17,660 vocab size.
+								<header class="major">
+									<h2>Dataset and Preprocessing</h2>
+								</header>
+								<h3> Dataset Description </h3>
+								The Lip Reading Senetences 2 (LRS2) dataset [2] is an audio-visual speech recognition dataset collected from in the wild videos. It consists of thousands of spoken sentences from BBC television. Each sentence is up to 100 characters in length. The training, validation, and test sets are divided according to broadcast date. The train set contains 45,839 utterances with 329,180 words instances and 17,660 vocabulary size.
 
-							    <br><br>
-							    <h3> Preprocessing </h3>
-							    We extracted the frames at 25fps usingopencvand trimmed the face coordinates of the speaker.  We useddlibget_frontal_face_detectorto detect the speaker face from the video frames.  Each detected face is resized to96×96. The LipGan requires that audio files are in the form of a Mel-frquency cepstrum features (MFCCs) so weconverted the audio files using the pythonaudiolibrary to match this format.  Pre-processed outputs for a video is shown in below figure.
-							    <span>
-                                 	<img src="files/preprocessing.png" alt="" width="100%">
-                                	<figcaption>Fig.1: Pre-processeding output for the utterance-"I Liked the radio podcast" 
-                                	</figcaption>
-							 	</span>						 					
+								<br><br>
+								<h3> Preprocessing </h3>
+								We extracted the frames at 25fps usingopencvand trimmed the face coordinates of the speaker.  We useddlibget_frontal_face_detectorto detect the speaker face from the video frames.  Each detected face is resized to96×96. The LipGan requires that audio files are in the form of a Mel-frquency cepstrum features (MFCCs) so weconverted the audio files using the pythonaudiolibrary to match this format.  Pre-processed outputs for a video is shown in below figure.
+								<span>
+									<img src="files/preprocessing.png" alt="" width="100%">
+									<figcaption>
+										Fig.1: Pre-processeding output for the utterance-"I Liked the radio podcast"
+									</figcaption>
+								</span>
 							</section>
 							
 
