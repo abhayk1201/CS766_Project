@@ -130,7 +130,7 @@
 								<span>
 									<img src="files/mt_0_lip_GAN.png" alt="" width="100%">
 									<figcaption>
-										Fig.2 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
+										Fig.3 LipGAN architecture. <a href="http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/facetoface_translation/paper.pdf"> Paper Link </a>
 									</figcaption>
 								</span>
 								<br><br><br>
@@ -171,14 +171,12 @@
 								<br>
 								<span>
 									<img src="files/contrastive_loss.PNG" style="width: 50%; height: 50%">
-									<figcaption>
-									</figcaption>
 								</span>
+								<br>
 								<i>m</i> is the margin (set to 2). The generator is trained to minimize L1 reconstruction loss between the generated frames and ground truth frames:
+								<br>
 								<span>
 									<img src="files/reconstruction_loss.PNG" style="width: 30%; height: 30%">
-									<figcaption>
-									</figcaption>
 								</span>
 
 							</section>
@@ -228,7 +226,7 @@
 
 
 							    <h3>Spurious lip region detection </h3>
-							    We have noticed that lip-sync generation has spurious movements on non-lip region, like lower chin or side chin as shown below (right video). We have observed this when the face detection module fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation. We are using dlib facial keypoints detector. 
+							    We have noticed that lip-sync generation has spurious movements on non-lip region, like lower chin or side chin as shown below (see Fig.4(b)). We have observed this when the face detection module fails to correctly localize the lip region. Profile view of the detected face usually faces this limitation. We are using dlib facial keypoints detector. 
 							    <br><br>
 							 	<span>
 	                                <video width="460" height="315" controls>
@@ -239,14 +237,14 @@
 									  <source src="files/biden_out.mp4" type="video/mp4">
 									</video> 							 	
 							 	
-							 		<figcaption>Fig.3 From left to right: (a) Reasonably accurate lip sync </a> (b) Spurious lip sync on non-lip region  </a>
+							 		<figcaption>Fig.4 From left to right: (a) Reasonably accurate lip sync </a> (b) Spurious lip sync on non-lip region  </a>
                                 	</figcaption>
                                 </span>
                                 <br><br><br>
 
 
                                 <h3>Profile face overcompensation/skewed lip sync</h3>
-							    Profile view of the detected face usually suffers from skewed lip movements i.e One side of lip has more movement than the other side. 
+							    Profile view of the detected face usually suffers from skewed lip movements i.e One side of lip has more movement than the other side (see Fig.5). 
 							    <br><br>
 							 	<span>
 	                                <video width="460" height="315" controls>
@@ -257,7 +255,7 @@
 									  <source src="files/profile.mp4" type="video/mp4">
 									</video> 							 	
 							 	
-							 		<figcaption>Fig.4 From left to right: (a) Reasonably accurate lip sync </a> (b) Skewed lip sync for profile face view </a>
+							 		<figcaption>Fig.5 From left to right: (a) Reasonably accurate lip sync </a> (b) Skewed lip sync for profile face view </a>
                                 	</figcaption>
                                 </span>
                                 <br><br><br>
@@ -266,7 +264,7 @@
 
 							
 							    <h3>Teeth Region Deformation: crooked teeth OR no teeth at all</h3>
-							    We observed that the LipGAN model generates image frames which smoothed out teeth and lip region. Lower teeth is merged with upper lip and smoothed out. In many cases, generated face images have crooked teeth, leading to very random/ discontinuous teeth contour. <br><br>
+							    We observed that the LipGAN model generates image frames which smoothed out teeth and lip region. Lower teeth is merged with upper lip and smoothed out. In many cases, generated face images have crooked teeth, leading to very random/ discontinuous teeth contour (see Fig.6). <br><br>
 							 	<span>
 	                                <video width="460" height="315" controls>
 									  <source src="files/no_teeth.mp4" type="video/mp4">
@@ -276,7 +274,7 @@
 									  <source src="files/ak_side.mp4" type="video/mp4">
 									</video> 							 	
 							 	
-								 	<figcaption>Fig.5 From left to right: (a) Generated lip-sync had missing teeth region </a> (b) Generated lip-synced frames with merged (smoothed) teeth and upper lip region </a>
+								 	<figcaption>Fig.6 From left to right: (a) Generated lip-sync had missing teeth region </a> (b) Generated lip-synced frames with merged (smoothed) teeth and upper lip region </a>
 	                                </figcaption>
                                 </span>
                                 <br><br><br>
@@ -287,17 +285,17 @@
                                 <br><br><br>
 
                                 <h3>Issues with lip movement and audio synchronization</h3> 
-                                Especially, background music leads to high murmuring lip movement. We usually don’t remove noise while using MFCC or Spectrogram heat maps, as usually learnt CNN filters should take care of that. But when we have background music (not noise) and music has a proper frequency representation, it becomes difficult for CNN models to distinguish music and speaker voice. Alternatively, we can remove noise during preprocessing step, but removing background music may require additional effort.
+                                Especially, background music leads to high murmuring lip movement (see Fig.7(b)).  We usually don’t remove noise while using MFCC or Spectrogram heat maps, as learnt CNN filters should take care of that. But when we have background music (not noise) and music has a proper frequency representation, it becomes difficult for CNN models to distinguish music and speaker voice. Alternatively, we can also remove noise during preprocessing step, but removing background music may require additional effort.<br>
                                 <span>
-	                                <video width="460" height="315" controls>
+	                                <video width="450" height="300" controls>
 									  <source src="files/trump_legacy_lip.mp4" type="video/mp4">
 									</video> 
 
-								 	<video width="460" height="320" controls>
+								 	<video width="470" height="330" controls>
 									  <source src="files/noise.mp4" type="video/mp4">
 									</video> 							 	
 							 	
-								 	<figcaption>Fig.6 From left to right: (a) Reasonably accurate lip sync </a> (b) Vibrating lips due to presence of noise or background music </a>
+								 	<figcaption>Fig.7 From left to right: (a) Reasonably accurate lip sync </a> (b) Vibrating lips due to presence of noise or background music </a>
 	                                </figcaption>
                                 </span>
                                 <br><br><br>
@@ -319,7 +317,7 @@
 							    </header>							    								 	
 							 	We have extensively discussed different categories of limitations in the above section. However, this this model is way more useful despite its shortcomings. Particularly, this is useful if we need to inpaint few frames in a larger video, for example missing frames in video due to internet network limitations. Another example is the use-case of a startup called "lyrebird.ai". Whenever we record, we tend to make some mistake that we want to modify later, but what if the error is in the middle of the video, we need to record it again otherwise stitching two different video segments may look abrupt. Lyrebird.ai solves that using lip syncing, basically you upload the video, it will generate the captioning, you just need to correct the captioning, and then it will OVER DUB the previous segment for the new corrected text; it generates your voice and lip syncing. 
 							 	<br><br>
-							 	We tried out the LipGAN model for cartoon characters too. It works reasonably well with animated cartoon as well. We can create lip-synced bitmoji or AR emoji using LipGAN. The only module we may need to fine-tune is the facial keypoint detector for non-human faces.
+							 	We tried out the LipGAN model for cartoon characters too. It works reasonably well with animated cartoon as well (see Fig.8). We can create lip-synced bitmoji or AR emoji using LipGAN. The only module we may need to fine-tune is the facial keypoint detector for non-human faces.
 							 	<br><br>
 							 	<span>
 	                                <video width="460" height="315" controls>
@@ -330,7 +328,7 @@
 									  <source src="files/cartoon1.mp4" type="video/mp4">
 									</video> 							 	
 							 	
-								 	<figcaption>Fig.7 From left to right: (a) avatar lip sync video </a> (b) cartoon lip sync video </a>
+								 	<figcaption>Fig.8 From left to right: (a) avatar lip sync video </a> (b) cartoon lip sync video </a>
 	                                </figcaption>
                                 </span>
 							</section>
