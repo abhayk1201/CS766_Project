@@ -71,7 +71,7 @@ Our work is derivered from this original work. Please cite the following origina
 
 ```
 @inproceedings{KR:2019:TAF:3343031.3351066,
-  author = {K R, Prajwal and Mukhopadhyay, Rudrabha and Philip, Jerin and Jha, Abhishek and Namboodiri, Vinay and Jawahar, C V},
+  author = {KR P, Mukhopadhyay R, Philip J, Jha A, Namboodiri V, Jawahar CV.},
   title = {Towards Automatic Face-to-Face Translation},
   booktitle = {Proceedings of the 27th ACM International Conference on Multimedia (MM '19)}, 
   url = {http://doi.acm.org/10.1145/3343031.3351066},
