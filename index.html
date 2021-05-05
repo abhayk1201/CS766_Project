@@ -9,6 +9,8 @@
 		<title>CS766 Project (LipGAN)</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="css_js_files/main.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -30,8 +32,8 @@
 							<!-- Header -->
                             
                             <h1> LipGAN: Speech to Lip Sync Generation </h1>
-                            	<h2><a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pptx"> (presentation slides) </a>
-                            	<a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pdf"> (PDF) </a> </h2>
+                            	<h2><a href="files/class_presentation.mp4"> (Presentation Video) </a><a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pptx"> (Presentation Slides) </a>
+                            	<a href="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pdf"> (Pdf) </a> </h2>
 
 							<section>
 							    <header class="major">
@@ -137,7 +139,9 @@
 									<h2> Model architecture overview</h2>
 								</header>
 
+								<header class="major">
 								<h2> Generator network </h2>
+								</header>
 								In our work, we reimplented the LipGAN model. Its architecture, shown in the diagram above, is comprised of two networks: a generator, composed of a face encoder, audio encoder, and face decoder, and a discriminator, composed of another face encoder and audio encoder. Training these networks together in an adversarial model achieves higher accuracy as the generator learns to create a more natural lip synchronization.
 								<br><br>
 								<h3> Face Encoder </h3>
@@ -152,7 +156,9 @@
 								Inputting the concatenated outputs of the face and audio encoders, the face decoder attempts to generate an image of a person’s face that matches the lip shape corresponding to the audio segment at a given time interval. This CNN consists of a series of residual blocks with intermediate deconvolutional layers which upsample the feature maps. Six skip connections are used after each upsampling operation to help feed enough information about the facial features. This assists in preserving the quality of the facial features while generating the image of the face.
 								<br><br>
 
+								<header class="major">
 								<h2> Discriminator network </h2>
+								</header>
 								Within the discriminator network, the output from the generator network is fed into a new face encoder. The discriminator calculates a contrastive loss from the output of both the face encoder and audio encoder. The value of this loss determines if the generated face is synchronized with the audio input or if it is not in sync.
 								<br><br>
 
@@ -191,7 +197,7 @@
                                  	<img src="files/exp2.png" alt="" width="40%" align="right">
                                 	<ul>
                                 		<li> Idea: Lip reason contributes to less than 4% of the total reconstruction loss. Can we improve by focusing on the lip region. 
-                                		<li> We observed that Lip region contributes to only 4% of total face ares i.e. the reconstruction loss. We hypothesize that we can use weighted loss to have extra supervision around lip region.                               
+                                		<li> We observed that Lip region contributes to only 4% of total face ares i.e. the reconstruction loss. We hypothesize that we can use weighted loss to have extra supervision around lip region. We give more weights to the lip region as compared to the non-lip region while calculating the L1 reconstruction loss. This effectively translates to multiplying the actual L1 reconstruction loss with a weight matrix, which has higher magnitude (alpha > 1) in lip region as compared to weight of 1 in non-lip region.                          
                                 		<li>Early epochs vs late epochs reconstruction loss: Without weighted loss, the network starts to morph the lip region only at around half way through training process (roughly 10 epoch). Using weighted loss, even the earlier epochs start focusing on the lip region. But after 15 epochs or so, both models achieve similar L1 reconstruction loss (MAE).                                		                                			
                                 		<li> One justification could be that we are passing the target pose prior (which is the face frame with masked lip region), Generative model learns to copy the non-lip face region anyways (be it in inital epochs or later epochs). Eventually focusing on lip region is redundant after midway through the training process, as both model versions will start focusing on the difficult part (morphing the lip region) than easy part (copy the non-lip region from target pose prior).
                                 	</ul>
@@ -277,7 +283,7 @@
 
 
                                 <h3>Limitations due to facial expression </h3>
-							    We also noticed that the model performs worse on faces with certain facial expressions, for example person in deep frown.
+							    We also noticed that the model performs worse on faces with certain facial expressions, for example person in deep frown. We could argue that the face encoder/decoder model is unable to capture the facial expressions efficiently and it leads to worse lip-syced frames.
                                 <br><br><br>
 
                                 <h3>Issues with lip movement and audio synchronization</h3> 
@@ -313,7 +319,7 @@
 							    </header>							    								 	
 							 	We have extensively discussed different categories of limitations in the above section. However, this this model is way more useful despite its shortcomings. Particularly, this is useful if we need to inpaint few frames in a larger video, for example missing frames in video due to internet network limitations. Another example is the use-case of a startup called "lyrebird.ai". Whenever we record, we tend to make some mistake that we want to modify later, but what if the error is in the middle of the video, we need to record it again otherwise stitching two different video segments may look abrupt. Lyrebird.ai solves that using lip syncing, basically you upload the video, it will generate the captioning, you just need to correct the captioning, and then it will OVER DUB the previous segment for the new corrected text; it generates your voice and lip syncing. 
 							 	<br><br>
-							 	We tried out the LipGAN model for cartoon characters too. It works reasonably well with animated cartoon as well. We can create lip-synced bitmoji or AR emoji using LipGAN.
+							 	We tried out the LipGAN model for cartoon characters too. It works reasonably well with animated cartoon as well. We can create lip-synced bitmoji or AR emoji using LipGAN. The only module we may need to fine-tune is the facial keypoint detector for non-human faces.
 							 	<br><br>
 							 	<span>
 	                                <video width="460" height="315" controls>
@@ -387,7 +393,7 @@
 				           
 				           <section>
 							    <header class="major">
-							        <h2> PDF Reports </h2>
+							        <h2> Reports </h2>
 							    </header>
 							   
 							  <!--  	<iframe src="files/CS766-LIP-GAN_SPEECH_TO_LIP_SYNC_GENERATION.pdf" frameborder="0" scrolling="yes"                           
@@ -419,6 +425,13 @@
 		    						</iframe>
 		    						<br><br>
 		    					</span>
+
+		    					<br><br>
+		    					<header class="major">
+							        <h2> Code </h2>							        
+							    </header>
+							    <a href="https://github.com/abhayk1201/CS766_Project/tree/master/LipGAN_code" title="About Me"><i class="fab fa-github" style="font-size:36px"></i></a>
+
 	    						
 	    					</section>
 
