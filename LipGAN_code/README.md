@@ -66,8 +66,7 @@ python train.py --data_root <path_to_preprocessed_dataset>
 python train.py --help
 ```
 
-Citation
-----------
+#### Citation
 Our work is derivered from this original work. Please cite the following original paper:
 
 ```
