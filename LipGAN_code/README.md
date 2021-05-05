@@ -66,28 +66,17 @@ python train.py --data_root <path_to_preprocessed_dataset>
 python train.py --help
 ```
 
-License and Citation
+Citation
 ----------
-The software is licensed under the MIT License. Please cite the following paper if you have use this code:
+Our work is derivered from this original work. Please cite the following original paper:
 
 ```
 @inproceedings{KR:2019:TAF:3343031.3351066,
   author = {K R, Prajwal and Mukhopadhyay, Rudrabha and Philip, Jerin and Jha, Abhishek and Namboodiri, Vinay and Jawahar, C V},
   title = {Towards Automatic Face-to-Face Translation},
-  booktitle = {Proceedings of the 27th ACM International Conference on Multimedia}, 
-  series = {MM '19}, 
-  year = {2019},
-  isbn = {978-1-4503-6889-6},
-  location = {Nice, France},
-   = {1428--1436},
-  numpages = {9},
+  booktitle = {Proceedings of the 27th ACM International Conference on Multimedia (MM '19)}, 
   url = {http://doi.acm.org/10.1145/3343031.3351066},
-  doi = {10.1145/3343031.3351066},
-  acmid = {3351066},
-  publisher = {ACM},
-  address = {New York, NY, USA},
-  keywords = {cross-language talking face generation, lip synthesis, neural machine translation, speech to speech translation, translation systems, voice transfer},
-}
+  }
 ```
 
 
