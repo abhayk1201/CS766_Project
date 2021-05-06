@@ -1,40 +1,26 @@
 LipGAN Source Code
 ===================
 
-
-
-
 [[Paper]](https://dl.acm.org/doi/10.1145/3343031.3351066)
 
-Training LipGAN
--------
-We illustrate the training pipeline using the LRS2 dataset. Adapting for other datasets would involve small modifications to the code. 
-### Preprocess the dataset
-We need to do two things: (i) Save the MFCC features from the audio and (ii) extract and save the facial crops of each frame in the video. 
+We illustrate the training and inference pipeline for the LRS2 dataset.
 
-##### LRS2 dataset folder structure
+###### LRS2 dataset folder structure
 ```
 data_root (mvlrs_v1)
 ├── main, pretrain (we use only main folder in this work)
 |	├── list of folders
 |	│   ├── five-digit numbered video IDs ending with (.mp4)
 ```
-##### Saving the MFCC features
-We use MATLAB to save the MFCC files for all the videos present in the dataset. Refer to the [fully_pythonic branch](https://github.com/Rudrabha/LipGAN/tree/fully_pythonic) if you do not want to use MATLAB.  
 
-```bash
-# Please copy the appropriate LRS2 train split's filelist.txt to the filelists/ folder. The example below is shown for LRS2.
-cd matlab
-matlab -nodesktop
->> preprocess_mat('../filelists/train.txt', 'mvlrs_v1/main/') # replace with appropriate file paths for other datasets.
->> exit
-cd ..
-```
-
-##### Saving the Face Crops of all Video Frames
+### Preprocess the dataset
+We need to do two things: (i) Save the MFCC features from the audio and (ii) extract and save the facial crops of each frame in the video. 
+We use Python [Librosa](https://librosa.github.io/librosa/) library to save melspectrogram features and perform face detection using dlib.  
 We preprocess the video files by detecting faces using a face detector from dlib. 
+CNN Face detection using dlib: [Link](http://dlib.net/files/mmod_human_face_detector.dat.bz2) 
+
 ```bash
-# Please copy the appropriate LRS2 split's filelist.txt to the filelists/ folder. Example below is shown for LRS2. 
+# Please copy the appropriate LRS2 split's filelist.txt to the filelists/ folder.
 python preprocess.py --split [train|pretrain|val] --videos_data_root mvlrs_v1/ --final_data_root <folder_to_store_preprocessed_files>
 
 ### More options while preprocessing (like number of workers, image size etc.)
@@ -47,7 +33,7 @@ data_root (mvlrs_v1)
 |	├── list of folders
 |	│   ├── folders with five-digit video IDs 
 |	│   |	 ├── 0.jpg, 1.jpg .... (extracted face crops of each frame)
-|	│   |	 ├── 0.npz, 1.npz .... (mfcc features corresponding to each frame)
+|	│   |	 ├── mels.npz, audio.wav (melspectrogram and raw audio of the whole video)
 ```
 
 #### Train the generator only
@@ -64,6 +50,15 @@ python train.py --data_root <path_to_preprocessed_dataset>
 
 ### Extensive set of training options available. Please run and refer to:
 python train.py --help
+```
+
+#### Inference: Generating lip-sync from a single face image
+Given an audio, LipGAN generates a correct mouth shape (viseme) at each time-step and overlays it on the input image. The sequence of generated mouth shapes yields a talking face video.
+```bash
+python batch_inference.py --checkpoint_path <saved_checkpoint> --model residual --face <random_input_face> --audio <guiding_audio_wav_file> --results_dir <folder_to_save_generated_video>
+
+#### More options
+python batch_inference.py --help
 ```
 
 #### Citation
