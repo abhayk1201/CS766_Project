@@ -317,6 +317,8 @@
 							    </header>							    								 	
 							 	We have extensively discussed different categories of limitations in the above section. However, this this model is way more useful despite its shortcomings. Particularly, this is useful if we need to inpaint few frames in a larger video, for example missing frames in video due to internet network limitations. Another example is the use-case of a startup called "lyrebird.ai". Whenever we record, we tend to make some mistake that we want to modify later, but what if the error is in the middle of the video, we need to record it again otherwise stitching two different video segments may look abrupt. Lyrebird.ai solves that using lip syncing, basically you upload the video, it will generate the captioning, you just need to correct the captioning, and then it will OVER DUB the previous segment for the new corrected text; it generates your voice and lip syncing. 
 							 	<br><br>
+							 	Not only does it produce reasonably accurate lip sync, the LipGAN model is speaker independent, language independent and pose invariant. we don't need to train different models for differnt speaker, language etc. This makes it easy and affordable to be deployed in any product or pipeline.
+							 	<br><br>
 							 	We tried out the LipGAN model for cartoon characters too. It works reasonably well with animated cartoon as well (see Fig.8). We can create lip-synced bitmoji or AR emoji using LipGAN. The only module we may need to fine-tune is the facial keypoint detector for non-human faces.
 							 	<br><br>
 							 	<span>
